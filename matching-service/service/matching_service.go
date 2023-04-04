@@ -1,17 +1,19 @@
 package service
 
+import (
+	"github.com/gin-gonic/gin"
+)
 
+type OrderMatcher interface {
+	MatchOrder(ctx *gin.Context)
+}
 
-
-/*
-	POST
-		/match (Order)
-	logic = 
-		get all orders from order service for the opposite symbol
-		match bid/ask prices (exact only)
-		create Match object
-
- */
 type MatchService struct {
+	OrderMatcher OrderMatcher
+}
 
+func (m *MatchService) Start() {
+	router := gin.Default()
+	router.POST("/match", m.OrderMatcher.MatchOrder)
+	router.Run("localhost:8080")
 }
