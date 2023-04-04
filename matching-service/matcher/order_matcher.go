@@ -11,7 +11,7 @@ type OrderMatcher struct {
 
 }
 
-func (o OrderMatcher) Match(ctx *gin.Context) {
+func (o OrderMatcher) MatchOrder(ctx *gin.Context) {
 	var unmatchedOrder model.UnmatchedOrder
 
 	if err := ctx.BindJSON(&unmatchedOrder); err != nil {
