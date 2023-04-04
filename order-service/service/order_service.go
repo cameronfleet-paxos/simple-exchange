@@ -12,7 +12,7 @@ type OrderService struct {
 	OrderHandler OrderHandler
 }
 
-func (s *OrderService) Start() {
+func (s OrderService) Start() {
 	router := gin.Default()
 	router.GET("/orders", s.OrderHandler.GetAll)
 	router.GET("/order/:id", s.OrderHandler.GetById)
