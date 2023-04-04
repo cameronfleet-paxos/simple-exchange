@@ -10,12 +10,12 @@ type OrderStore interface {
 	Upsert(order model.Order)
 }
 
-type OrderStoreImpl struct {
+type InMemoryOrderStore struct {
 	orders []model.Order
 }
 
-func NewOrderStore() OrderStore {
-	orderStore := new(OrderStoreImpl)
+func NewInMemoryOrderStore() OrderStore {
+	orderStore := new(InMemoryOrderStore)
 	orderStore.orders = []model.Order{
 		{
 			Id:       uuid.New(),
@@ -33,10 +33,10 @@ func NewOrderStore() OrderStore {
 	return orderStore
 }
 
-func (s *OrderStoreImpl) GetAll() []model.Order {
+func (s *InMemoryOrderStore) GetAll() []model.Order {
 	return s.orders
 }
 
-func (s *OrderStoreImpl) Upsert(order model.Order) {
+func (s *InMemoryOrderStore) Upsert(order model.Order) {
 	s.orders = append(s.orders, order)
 }

@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	orderStore := store.NewOrderStore()
+	orderStore := store.NewInMemoryOrderStore()
 	orderHandler := &handler.OrderHandler{OrderStore: orderStore}
 	orderServer := service.OrderService{OrderHandler: orderHandler}
 	orderServer.Start()
