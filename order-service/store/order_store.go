@@ -15,22 +15,22 @@ type InMemoryOrderStore struct {
 }
 
 func NewInMemoryOrderStore() OrderStore {
-	orderStore := new(InMemoryOrderStore)
-	orderStore.orders = []model.Order{
-		{
-			Id:       uuid.New(),
-			Symbol:   model.Symbol{BidAsset: model.BTC, AskAsset: model.ETH},
-			BidPrice: 2,
-			AskPrice: 56516,
-		},
-		{
-			Id:       uuid.New(),
-			Symbol:   model.Symbol{BidAsset: model.BTC, AskAsset: model.ETH},
-			BidPrice: 1,
-			AskPrice: 28258,
+	return &InMemoryOrderStore{
+		orders: []model.Order{
+			{
+				Id:       uuid.New(),
+				Symbol:   model.Symbol{BidAsset: model.BTC, AskAsset: model.ETH},
+				BidPrice: 2,
+				AskPrice: 56516,
+			},
+			{
+				Id:       uuid.New(),
+				Symbol:   model.Symbol{BidAsset: model.BTC, AskAsset: model.ETH},
+				BidPrice: 1,
+				AskPrice: 28258,
+			},
 		},
 	}
-	return orderStore
 }
 
 func (s *InMemoryOrderStore) GetAll() []model.Order {

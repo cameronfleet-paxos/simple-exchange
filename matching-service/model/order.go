@@ -2,7 +2,9 @@ package model
 
 import "github.com/google/uuid"
 
-type OrderId uuid.UUID
+type OrderId struct {
+	uuid.UUID
+}
 
 type Order struct {
 	Id       OrderId
