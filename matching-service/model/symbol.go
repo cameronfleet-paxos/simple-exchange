@@ -10,3 +10,7 @@ type Symbol struct {
 func (s Symbol) String() string {
 	return fmt.Sprintf("%s/%s", s.BidAsset, s.AskAsset)
 }
+
+func (s Symbol) Opposite() Symbol {
+	return Symbol{BidAsset: s.AskAsset, AskAsset: s.BidAsset}
+}
