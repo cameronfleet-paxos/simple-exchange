@@ -5,6 +5,15 @@
 		},
 		{
 			"path": "matching-service"
+		},
+		{
+			"path": "monolith"
+		},
+		{
+			"path": "monolith-decomposed"
+		},
+		{
+			"path": "monolith-decomposed-2"
 		}
 	]
 }

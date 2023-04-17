@@ -29,7 +29,6 @@ func (o *OrderMatcher) MatchOrder(c *gin.Context) {
 
 	fmt.Println("Attempting to match order:", unmatchedOrder, "with orders:", orders)
 	for _, order := range orders {
-
 		if order.Symbol == unmatchedOrder.Symbol.Opposite() {
 			c.JSON(http.StatusOK, gin.H{"message": "order matched with: " + order.Id.String()})
 			return
